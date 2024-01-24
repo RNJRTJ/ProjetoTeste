@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Comércio Fácill</title>
+    <meta name="author" content="Squad 25" />
+    <meta name="description" content="Comércio Fácil: Encontre o que deseja perto de você!">
+    <meta name="keywords" content="produtos, comprar, feira">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../imgs/favicon.png" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <!-- - header - -->
+    <header id="header">
+        <nav class="navbar navbar-expand-lg" id="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center me-5" href="index.html">
+                    <img src="../imgs/favicon.png" alt="Good Vacation">
+                    <!-- <span class="me-2 fw-semibold">Comércio Fácil</span> -->
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item utilities-item ms-4 ps-4">
+                            <div class="utilities-div utilities-focus rounded-pill">
+                                <a href="" class="nav-link d-flex align-items-center text-decoration-none me-1">
+                                    <img src="../imgs/user-default.svg" id="userPefil" class="rounded-circle me-2"
+                                        alt="Nova sessão">
+                                    <span id="userName">Nova sessão</span>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item utilities-item ms-0">
+                            <div class="utilities-div rounded-pill me-3">
+                                <a href="restrictedArea.html"
+                                    class="nav-link d-flex align-items-center text-decoration-none ms-1">
+                                    <img src="../imgs/warning-default.svg" class="rounded-circle me-2"
+                                        alt="Área restrita">
+                                    <span id="restrictedArea">Área do empreendedor</span>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" aria-current="page" href="../index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="about.html">Sobre nós</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fw-semibold" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Parceiros e clientes
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="">Conheça nossos parceiros</a>
+                                </li>
+                                <li><a class="dropdown-item" href="">Saiba mais sobre nossos
+                                        clientes</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="contacts.html">Contatos</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav-help ms-3 ps-2">
+                        <a class="nav-link fs-6 fw-semibold" href="https://www.bibliaonline.com.br/"
+                            target="_blank">Ajuda
+                            <button class="btn btn-outline-primary rounded-circle ms-2 fw-semibold"
+                                type="submit">?</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header> <!-- End #header -->
+
+    <!-- - main - -->
+    <main class="container">
+
+        <!-- #restricted-section -->
+        <section id="restricted-section">
+            <div class="px-3">
+                <div class="section-title py-1">
+                    <h2 class="fs-2 fw-bold">Dashboard principal</h2>
+                    <p class="fs-5 pb-2">Gerencie seus empreendimentos de forma simples e prática</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-10">
+                        <p class="fs-6 mb-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Nobis eveniet laudantium soluta accusamus, neque earum obcaecati natus temporibus.
+                            Voluptates, quibusdam. Distinctio dolores sit officia voluptatibus repellendus earum necessitatibus
+                            minima veniam?
+                        </p>
+                    </div>
+
+                    <div class="col-lg-2 mb-5">
+                        <a href="/categorias/showEmployer" class="btn btn-primary d-flex align-items-center justify-content-center px-1"><i class="bi bi-plus-circle-dotted fs-4 pe-2"></i> Cadastrar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-between row-gap-4">
+                <div class="col-xl-3 col-lg-4 col-md-6" th:each="categoria : ${categorias}">
+                    <div class="d-flex justify-content-center">
+                        <div class="card card-enterprise">
+                            <div class="img-container">
+                                <img src="../imgs/gramado.png" class="card-img-top" alt="Imagem do empreendimento">
+                            </div>
+                            
+                            <div class="card-body">
+                                <span>Cod. </span><span th:text="${categoria.id}">1</span>
+                                <h3 class="fs-5 fw-semibold" th:text="${categoria.nome}">xDe16 carcatgMaer</h3>
+                                <p class="py-1" th:text="${categoria.descricao}">maximo de 52 caracteres de forma reduzida assim dest</p>
+
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <a href="#" class="btn btn-primary py-1 mb-1"><i class="bi bi-pencil-square"></i> Editar</a>
+                                    <a href="#" class="btn btn-primary py-1 mb-1"><i class="bi bi-trash"></i> Excluir</a>
+                                </div>
+                            </div>
+                        </div> <!-- End .card -->
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-4 col-md-6" th:each="categoria : ${categorias}">
+                    <div class="d-flex justify-content-center">
+                        <div class="card card-enterprise">
+                            <div class="img-container">
+                                <img src="../imgs/gramado.png" class="card-img-top" alt="Imagem do empreendimento">
+                            </div>
+                            
+                            <div class="card-body">
+                                <span>Cod. </span><span th:text="${categoria.id}">1</span>
+                                <h3 class="fs-5 fw-semibold" th:text="${categoria.nome}">xDe16 carcatgMaer</h3>
+                                <p class="py-1" th:text="${categoria.descricao}">maximo de 52 caracteres de forma reduzida assim dest</p>
+
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <a href="#" class="btn btn-primary py-1 mb-1"><i class="bi bi-pencil-square"></i> Editar</a>
+                                    <a href="#" class="btn btn-primary py-1 mb-1"><i class="bi bi-trash"></i> Excluir</a>
+                                </div>
+                            </div>
+                        </div> <!-- End .card -->
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-4 col-md-6" th:each="categoria : ${categorias}">
+                    <div class="d-flex justify-content-center">
+                        <div class="card card-enterprise">
+                            <div class="img-container">
+                                <img src="../imgs/gramado.png" class="card-img-top" alt="Imagem do empreendimento">
+                            </div>
+                            
+                            <div class="card-body">
+                                <span>Cod. </span><span th:text="${categoria.id}">1</span>
+                                <h3 class="fs-5 fw-semibold" th:text="${categoria.nome}">xDe16 carcatgMaer</h3>
+                                <p class="py-1" th:text="${categoria.descricao}">maximo de 52 caracteres de forma reduzida assim dest</p>
+
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <a href="#" class="btn btn-primary py-1 mb-1"><i class="bi bi-pencil-square"></i> Editar</a>
+                                    <a href="#" class="btn btn-primary py-1 mb-1"><i class="bi bi-trash"></i> Excluir</a>
+                                </div>
+                            </div>
+                        </div> <!-- End .card -->
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-4 col-md-6" th:each="categoria : ${categorias}">
+                    <div class="d-flex justify-content-center">
+                        <div class="card card-enterprise">
+                            <div class="img-container">
+                                <img src="../imgs/gramado.png" class="card-img-top" alt="Imagem do empreendimento">
+                            </div>
+                            
+                            <div class="card-body">
+                                <span>Cod. </span><span th:text="${categoria.id}">1</span>
+                                <h3 class="fs-5 fw-semibold" th:text="${categoria.nome}">xDe16 carcatgMaer</h3>
+                                <p class="py-1" th:text="${categoria.descricao}">maximo de 52 caracteres de forma reduzida assim dest</p>
+
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <a href="#" class="btn btn-primary py-1 mb-1"><i class="bi bi-pencil-square"></i> Editar</a>
+                                    <a href="#" class="btn btn-primary py-1 mb-1"><i class="bi bi-trash"></i> Excluir</a>
+                                </div>
+                            </div>
+                        </div> <!-- End .card -->
+                    </div>
+                </div>
+            </div>
+        </section> <!-- End #restricted-section -->
+
+    </main> <!-- End .container -->
+    
+    <span>steps aqui</span>
+
+                    <div class="form-outer">
+                        <form action="contacts.html" class="rounded mt-3" method="post" enctype="multipart/form-data" style="border: 1px solid red;">
+                            <div class="form-page slide-page p-4">
+                                <p class="mb-1">Dados da feira comercial:</p>
+    
+                                <div class="mb-3">
+                                    <div class="row align-items-center">
+                                        <label for="inputNameTradeFair" class="form-label">Busque pelo nome da feira ou selecione uma existente:</label>
+                                        
+                                        <div class="col-sm-10 col-9 pe-0">
+                                            <input value="oo" type="text" class="form-control" id="inputNameTradeFair" name="fantasyName" required>
+                                        </div>
+                        
+                                        <div class="col-sm-2 col-3 text-center ">
+                                            <a href="" class="btn btn-primary rounded-pill py-2"><i class="bi bi-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="input-group mb-3">
+                                    <select class="form-select" id="inputSelectState">
+                                        <option selected>Estado</option>
+                                        <option value="Bahia">BA</option>
+                                        <option value="São Paulo">SP</option>
+                                        <option value="Rio de Janeiro">RJ</option>
+                                    </select>
+        
+                                    <span class="input-group-text"></span>
+        
+                                    <select class="form-select" id="inputSelectTradeFair">
+                                        <option selected>selecione...</option>
+                                        <option value="1">Feira Municipal de Maricá</option>
+                                        <option value="2">Mercadão Santos</option>
+                                        <option value="3">Barracão Aliança de Camaçari</option>
+                                    </select>
+                                </div>
+        
+                                <div class="mb-3">
+                                    <label class="form-label">Resultado da consulta:</label>
+                                    <input type="text" class="form-control mb-2" value="${tradeFair.nameTradeFair}" required disabled>
+                                    
+                                    <div class="input-group my-2">
+                                        <input type="text" class="form-control" value="${tradeFair.state}" required disabled>
+                                    
+                                        <span class="input-group-text"></span>
+                                        
+                                        <input type="text" class="form-control" value="${tradeFair.city}" required disabled>
+                                    </div>
+                                </div>
+        
+                                <div class="d-grid gap-2 col-6 mx-auto mt-4">
+                                    <button class="btn btn-outline-primary fw-semibold" onclick="nextStep('-100%');">Avançar</button>
+                                </div>
+                            </div> <!-- End .form-page -->
+    
+                            <div class="p-4 form-page">
+                                <p class="mb-1">Dados do empreendimento:</p>
+    
+                                <div class="mb-3">
+                                    <div class="row align-items-center">
+                                        <label class="form-label">Informe o código individual do seu empreendimento:
+                                            <a href="#" data-bs-toggle="tooltip" data-bs-title="É o código que a sua instituição forneceu. Clique para mais informações.">
+                                                <i class="bi bi-question-circle-fill question-icon"></i>
+                                            </a>
+                                        </label>
+                                        
+                                        <div class="col-sm-10 col-9 pe-0">               
+                                            <input type="text" class="form-control" id="inputCodEnterprise" name="codEnterprise" required>
+                                        </div>
+                        
+                                        <div class="col-sm-2 col-3 text-center ">
+                                            <a href="" class="btn btn-primary rounded-pill py-2"><i class="bi bi-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="mb-3">
+                                    <label class="form-label">Resultado da consulta:</label>
+                                    
+                                    <div class="input-group my-2">
+                                        <input type="text" class="form-control" value="${selectedEnterprise.fantasyName}" required disabled>
+                                    
+                                        <span class="input-group-text"></span>
+                                        
+                                        <input type="text" class="form-control" value="${selectedEnterprise.cnpj}" required disabled>
+                                    </div>
+                                </div>
+        
+                                <div class="row mt-4">
+                                    <div class="col col-sm-6 d-grid mx-auto mt-2 px-3">
+                                        <button class="btn btn-outline-primary fw-semibold" onclick="nextStep('0%');">Voltar</button>
+                                    </div>
+    
+                                    <div class="col col-sm-6 d-grid mx-auto mt-2 px-3">
+                                        <button type="submit" class="btn btn-outline-primary fw-semibold">Avançar</button>
+                                    </div>
+                                </div>
+                            </div> <!-- End .form-page -->
+                        </form>
+                    </div>
+
+    <!-- JS scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
